@@ -58,3 +58,5 @@ fastapi dev
 uv add tzdata
 ```
 
+# Validación de datos con Pydantic en FastAPI: Creación de endpoints
+
