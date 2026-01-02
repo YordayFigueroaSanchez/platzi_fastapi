@@ -17,3 +17,8 @@ uv init
 ```:bash
 uv venv
 ```
+
+# Creación de APIs con FastAPI: Framework Rápido y Versátil
+[FastAPI](https://fastapi.tiangolo.com/)
+[Pydantic](https://docs.pydantic.dev/latest/)
+[Starlette](https://starlette.dev/)
