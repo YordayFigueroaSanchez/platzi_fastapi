@@ -60,3 +60,5 @@ uv add tzdata
 
 # Validación de datos con Pydantic en FastAPI: Creación de endpoints
 
+# Modelado de Datos y Conexión de Modelos en FastAPI
+
