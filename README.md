@@ -62,3 +62,4 @@ uv add tzdata
 
 # Modelado de Datos y Conexión de Modelos en FastAPI
 
+# Validación de Datos y Modelos en Endpoints de FastAPI
