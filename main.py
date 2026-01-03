@@ -46,6 +46,23 @@ async def create_customer(customer_data: CustomerCreate, session: SessionDep):
     session.refresh(customer)
     return customer
 
+@app.get("/customer/{customer_id}")
+async def get_customer_by_id(customer_id: int, session: SessionDep):
+    # return session.exec(select(Customer).where(Customer.id == customer_id)).one_or_none()
+    customer_db = session.get(Customer, customer_id)
+    if not customer_db:
+        raise HTTPException(status_code=404, detail="Customer not found")
+    return customer_db
+
+@app.delete("/customer/{customer_id}")
+async def delete_customer_by_id(customer_id: int, session: SessionDep):
+    customer_db = session.get(Customer, customer_id)
+    if not customer_db:
+        raise HTTPException(status_code=404, detail="Customer not found")
+    session.delete(customer_db)
+    session.commit()
+    return {"detail": "ok"}
+
 @app.post("/transaction")
 async def create_transaction(transaction_data: Transaction):
     return transaction_data
