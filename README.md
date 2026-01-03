@@ -74,3 +74,5 @@ uv add sqlmodel
 # Integración de SQLModel en FastAPI para Manejo de Bases de Datos
 
 # Creación y Gestión de Endpoints en FastAPI para CRUD de Clientes
+
+# Actualización de Clientes: Implementación de Endpoint PATCH
