@@ -1,5 +1,5 @@
 import zoneinfo
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException, status
 from datetime import datetime
 
 from models import CustomerBase, CustomerCreate, CustomerUpdate, Customer, Transaction, Invoice
@@ -51,14 +51,14 @@ async def get_customer_by_id(customer_id: int, session: SessionDep):
     # return session.exec(select(Customer).where(Customer.id == customer_id)).one_or_none()
     customer_db = session.get(Customer, customer_id)
     if not customer_db:
-        raise HTTPException(status_code=404, detail="Customer not found")
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Customer not found")
     return customer_db
 
 @app.delete("/customer/{customer_id}")
 async def delete_customer_by_id(customer_id: int, session: SessionDep):
     customer_db = session.get(Customer, customer_id)
     if not customer_db:
-        raise HTTPException(status_code=404, detail="Customer not found")
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Customer not found")
     session.delete(customer_db)
     session.commit()
     return {"detail": "ok"}
