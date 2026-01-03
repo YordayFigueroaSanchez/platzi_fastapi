@@ -3,8 +3,10 @@ from fastapi import FastAPI
 from datetime import datetime
 
 from models import CustomerBase, CustomerCreate, CustomerUpdate, Customer, Transaction, Invoice
+from db import SessionDep, create_all_tables
+from sqlmodel import select
 
-app = FastAPI()
+app = FastAPI(lifespan=create_all_tables)
 
 
 @app.get("/")
@@ -33,14 +35,15 @@ async def time(iso_code: str):
 list_customers = []
 
 @app.get("/customer")
-async def get_customers():
-    return list_customers
+async def get_customers(session: SessionDep):
+    return session.exec(select(Customer)).all()
 
 @app.post("/customer", response_model=Customer)
-async def create_customer(customer_data: CustomerCreate):
+async def create_customer(customer_data: CustomerCreate, session: SessionDep):
     customer = Customer.model_validate(customer_data.model_dump())
-    list_customers.append(customer)
-    customer.id = len(list_customers)
+    session.add(customer)
+    session.commit()
+    session.refresh(customer)
     return customer
 
 @app.post("/transaction")

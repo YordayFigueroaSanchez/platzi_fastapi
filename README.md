@@ -63,3 +63,12 @@ uv add tzdata
 # Modelado de Datos y Conexión de Modelos en FastAPI
 
 # Validación de Datos y Modelos en Endpoints de FastAPI
+
+# Conexión de FastAPI con SQLite usando SQLModel
+[SQLModel](https://sqlmodel.tiangolo.com/)
+## Agregar SQLModel
+```bash
+uv add sqlmodel
+```
+
+# Integración de SQLModel en FastAPI para Manejo de Bases de Datos
