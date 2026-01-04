@@ -112,3 +112,5 @@ Relacion de uno a muchos entre `customer` y `transaction`.
 Se agregar el modelo `plan`
 
 # Creación y Suscripción de Planes y Clientes en FastAPI
+
+# Consultas Avanzadas con SQL Model y Filtrado de Estados en FastAPI
