@@ -1,8 +1,12 @@
+from pydantic.functional_validators import field_validator
+from sqlmodel.orm.session import Session
+from db import engine
 from pydantic.networks import EmailStr
 from sqlmodel.main import Relationship
 from pydantic import BaseModel
-from sqlmodel import SQLModel, Field
+from sqlmodel import SQLModel, Field, select
 from enum import Enum
+from db import engine
 
 # StatusEnum
 class StatusEnum(str, Enum):
@@ -36,6 +40,15 @@ class CustomerBase(SQLModel):
     description: str = Field(default=None)
     email: EmailStr = Field(default=None)
     age: int = Field(default=None)
+
+    @field_validator("email")
+    @classmethod
+    def validate_email(cls, value):
+        session = Session(engine)
+        query = select(Customer).where(Customer.email == value)
+        if session.exec(query).first():
+            raise ValueError("Email already exists")
+        return value
 
 class CustomerCreate(CustomerBase):
     pass
