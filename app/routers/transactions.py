@@ -1,3 +1,4 @@
+from fastapi.params import Query
 from models import TransactionCreate
 from models import Transaction
 from fastapi import APIRouter, status, HTTPException
@@ -20,7 +21,7 @@ async def create_transaction(transaction_data: TransactionCreate, session: Sessi
     return transaction_db
 
 @router.get("/transaction", tags=["transactions"])
-async def get_transactions(session: SessionDep):
-    query = select(Transaction)
+async def get_transactions(session: SessionDep, skip: int = Query(default=0), limit: int = Query(default=10)):
+    query = select(Transaction).offset(skip).limit(limit)
     transactions = session.exec(query).all()
     return transactions

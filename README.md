@@ -121,3 +121,4 @@ Se agregar el modelo `plan`
 
 # Implementación de Paginación en FastAPI con SQLModel
 - crear registros de transacciones
+- agregar paginacion
