@@ -107,3 +107,6 @@ fastapi dev app/main.py
 # Relaciones en FastAPI y SQL Model: Creación y Uso Práctico
 ## Cada customer puede crear muchas transactions
 Relacion de uno a muchos entre `customer` y `transaction`.
+
+# Relaciones Muchos a Muchos en Bases de Datos con SQLModel
+Se agregar el modelo `plan`
