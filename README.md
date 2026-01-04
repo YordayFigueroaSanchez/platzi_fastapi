@@ -131,3 +131,5 @@ Se agregar pytest
 pytest app\test\test_customers.py
 ```
 
+# Autenticación Básica HTTP con FastAPI
+
