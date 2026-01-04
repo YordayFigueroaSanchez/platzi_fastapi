@@ -118,3 +118,6 @@ Se agregar el modelo `plan`
 # Validación de Emails Únicos en Bases de Datos con Pydantic y FastAPI
 - validar formato de email
 - validar que el email no exista
+
+# Implementación de Paginación en FastAPI con SQLModel
+- crear registros de transacciones
