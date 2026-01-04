@@ -1,7 +1,8 @@
 import zoneinfo
 from fastapi import FastAPI, status
 from datetime import datetime
-
+import time
+from fastapi import Request
 from models import Invoice
 from db import create_all_tables
 from .routers import customers, transactions, invoices, plans
@@ -12,6 +13,14 @@ app.include_router(customers.router)
 app.include_router(transactions.router)
 app.include_router(invoices.router)
 app.include_router(plans.router)
+
+@app.middleware("http")
+async def log_request_time(request: Request, call_next):
+    start_time = time.time()
+    response = await call_next(request)
+    process_time = time.time() - start_time
+    print(f"{request.method} {request.url} {response.status_code} {process_time}")
+    return response
 
 @app.get("/")
 async def read_root():
@@ -30,7 +39,7 @@ country_timezones = {
 
 # endpoint para retornar la hora actual
 @app.get("/time/{iso_code}")
-async def time(iso_code: str):
+async def get_time_by_iso_code(iso_code: str):
     iso = iso_code.upper()
     timezone = country_timezones.get(iso)
     tz = zoneinfo.ZoneInfo(timezone)
