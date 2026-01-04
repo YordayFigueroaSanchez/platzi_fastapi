@@ -76,3 +76,30 @@ uv add sqlmodel
 # Creación y Gestión de Endpoints en FastAPI para CRUD de Clientes
 
 # Actualización de Clientes: Implementación de Endpoint PATCH
+
+# Estructuración de Aplicaciones con FastAPI y API Router
+**Estructura de la aplicación**
+- .
+    - app
+        - __init__.py
+        - main.py
+        - dependencies.py
+        - routers
+            - __init__.py
+            - customers.py
+            - transactions.py
+            - invoices.py
+    - models.py
+    - db.py
+    - requirements.txt    
+
+## Creación de Routers
+## Cambio en el comando
+Antes se ejecutaba 
+```
+fastapi dev
+```
+Ahora se ejecuta
+```
+fastapi dev app/main.py
+```
