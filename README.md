@@ -103,3 +103,7 @@ Ahora se ejecuta
 ```
 fastapi dev app/main.py
 ```
+
+# Relaciones en FastAPI y SQL Model: Creación y Uso Práctico
+## Cada customer puede crear muchas transactions
+Relacion de uno a muchos entre `customer` y `transaction`.
