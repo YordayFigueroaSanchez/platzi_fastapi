@@ -110,3 +110,5 @@ Relacion de uno a muchos entre `customer` y `transaction`.
 
 # Relaciones Muchos a Muchos en Bases de Datos con SQLModel
 Se agregar el modelo `plan`
+
+# Creación y Suscripción de Planes y Clientes en FastAPI
