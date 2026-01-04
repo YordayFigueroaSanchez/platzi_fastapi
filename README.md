@@ -114,3 +114,6 @@ Se agregar el modelo `plan`
 # Creación y Suscripción de Planes y Clientes en FastAPI
 
 # Consultas Avanzadas con SQL Model y Filtrado de Estados en FastAPI
+
+# Validación de Emails Únicos en Bases de Datos con Pydantic y FastAPI
+- validar formato de email

@@ -1,3 +1,4 @@
+from pydantic.networks import EmailStr
 from sqlmodel.main import Relationship
 from pydantic import BaseModel
 from sqlmodel import SQLModel, Field
@@ -33,7 +34,7 @@ class Plan(PlanBase, table=True):
 class CustomerBase(SQLModel):
     name: str = Field(default=None)
     description: str = Field(default=None)
-    email: str = Field(default=None)
+    email: EmailStr = Field(default=None)
     age: int = Field(default=None)
 
 class CustomerCreate(CustomerBase):
