@@ -9,3 +9,8 @@ dependencies = [
     "sqlmodel>=0.0.31",
     "tzdata>=2025.3",
 ]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+]

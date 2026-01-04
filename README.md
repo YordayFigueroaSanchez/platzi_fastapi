@@ -124,3 +124,6 @@ Se agregar el modelo `plan`
 - agregar paginacion
 
 # Implementación de Middlewares en FastAPI para Medir Tiempos de Request
+
+# Pruebas unitarias con FastAPI y Pytest: Configuración y Ejecución
+
