@@ -135,3 +135,7 @@ pytest app\test\test_customers.py
 
 # Recursos
 [FastAPI Template](https://github.com/fastapi/full-stack-fastapi-template)
+
+
+# Examen
+OK
