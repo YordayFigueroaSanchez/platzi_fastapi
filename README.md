@@ -126,7 +126,13 @@ Se agregar el modelo `plan`
 # Implementación de Middlewares en FastAPI para Medir Tiempos de Request
 
 # Pruebas unitarias con FastAPI y Pytest: Configuración y Ejecución
-Se agregar pytest
+
+## Se agregar pytest
+```
+uv add pytest
+```
+
+## Ejecutar test de customers
 ```
 pytest app\test\test_customers.py
 ```
